@@ -58,6 +58,16 @@ The build screen shows the selected executable name, optional administrator prom
 
 After a successful build, Vortex RAT Builder shows the output executable path and reminds the user to connect through the configured Telegram bot.
 
+### Telegram Status Updates
+
+![Vortex RAT Builder Telegram connection status](screenshots/photo_2026-06-12_12-09-50.jpg)
+
+When an authorized build connects, the configured Telegram admin receives a status card with device context such as user, host, OS, admin state, IP details, and uptime.
+
+### Command Preview
+
+The Telegram `/help` menu organizes commands by category inside the bot. For a public-safe command list with usage examples, see the full [Command Reference](#command-reference) section below. Sensitive command-menu screenshots are intentionally not embedded in this README because they expose high-risk actions that should only be handled in private authorized lab documentation.
+
 ## Core Features
 
 ### Telegram-Based Control
