@@ -309,7 +309,7 @@ Capture:
 /keylog
 /stopkeylog
 
-Data Collection:
+Premium Commands - Data Collection:
 /cookies
 /allcookies
 /passwords
