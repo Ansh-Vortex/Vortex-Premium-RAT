@@ -1,15 +1,15 @@
-# Vortex Advanced Remote Administration Tool
+# Vortex RAT Builder
 
-Vortex is a professional, open-source remote administration project built for authorized device management, security research, and controlled lab testing. It combines a Telegram-based control workflow with a polished Windows builder UI, making it easier to configure, package, and manage remote administration agents from one place.
+Vortex RAT Builder is a professional, open-source builder project for authorized device management, security research, and controlled lab testing. It combines a polished Windows builder UI with Telegram bot configuration, making it easier to configure, package, and manage authorized remote administration builds from one place.
 
 Official website: [vortexcodes.org](https://vortexcodes.org)
 
-> Important: Vortex must only be used on systems you own or have explicit permission to administer. Do not install, run, monitor, or collect data from any device without clear authorization.
+> Important: Vortex RAT Builder must only be used for systems you own or have explicit permission to administer. Do not install, run, monitor, or collect data from any device without clear authorization.
 
 ## Project Status
 
 - Fully open source for transparency, learning, review, and customization.
-- Built around a Telegram bot workflow for fast remote administration.
+- Built around a Telegram bot workflow for authorized remote administration builds.
 - Includes a modern Windows builder interface with setup, build, and support sections.
 - Designed for authorized administrators, developers, and security researchers.
 
@@ -24,17 +24,45 @@ The source is open for review and learning. The paid lifetime option supports ac
 
 ## Buy And Support
 
-To buy Vortex or request support:
+To buy Vortex RAT Builder or request support:
 
 - Direct message: [t.me/highoncodes](https://t.me/highoncodes)
 - Support and update channel: [t.me/VortexPremiumRat](https://t.me/VortexPremiumRat)
 - Website: [vortexcodes.org](https://vortexcodes.org)
 
+## Screenshots
+
+The screenshots below show the main Vortex RAT Builder workflow: setup guidance, build configuration, packaging progress, and build completion.
+
+### Builder Configuration
+
+![Vortex RAT Builder credentials and customization screen](screenshots/photo_2026-06-12_12-09-31.jpg)
+
+The Builder tab is where users enter their Telegram bot token, admin user ID, executable name, optional icon, and administrator prompt preference before packaging a build.
+
+### Setup Guide
+
+![Vortex RAT Builder setup guide screen](screenshots/photo_2026-06-12_12-09-45.jpg)
+
+The Setup Guide explains the first-time configuration flow, including creating a Telegram bot, saving the bot token, and finding the admin Telegram user ID used for access control.
+
+### Build Progress
+
+![Vortex RAT Builder build progress screen](screenshots/photo_2026-06-12_12-10-05.jpg)
+
+The build screen shows the selected executable name, optional administrator prompt setting, dependency checks, and packaging progress while the builder prepares the output.
+
+### Build Complete
+
+![Vortex RAT Builder success dialog](screenshots/photo_2026-06-12_12-10-12.jpg)
+
+After a successful build, Vortex RAT Builder shows the output executable path and reminds the user to connect through the configured Telegram bot.
+
 ## Core Features
 
 ### Telegram-Based Control
 
-Vortex uses Telegram as the command and notification layer. Authorized admins can manage connected devices, receive startup notifications, switch between active sessions, and keep track of online machines through a simple chat-based workflow.
+Vortex RAT Builder configures builds that use Telegram as the command and notification layer. Authorized admins can manage connected devices, receive startup notifications, switch between active sessions, and keep track of online machines through a simple chat-based workflow.
 
 Highlights:
 
@@ -46,7 +74,7 @@ Highlights:
 
 ### Modern Builder UI
 
-The included builder provides a clean desktop interface for preparing Vortex builds without manually editing configuration values.
+The included builder provides a clean desktop interface for preparing Vortex RAT Builder builds without manually editing configuration values.
 
 Highlights:
 
@@ -62,7 +90,7 @@ Highlights:
 
 ### System Administration
 
-Vortex includes a broad set of system management tools for authorized Windows administration.
+Vortex RAT Builder packages a broad set of system management tools for authorized Windows administration.
 
 Highlights:
 
@@ -94,7 +122,7 @@ Highlights:
 
 ### User Interaction Tools
 
-Vortex provides tools for visible interaction with an authorized device during support, testing, or demonstration sessions.
+Vortex RAT Builder can package tools for visible interaction with an authorized device during support, testing, or demonstration sessions.
 
 Highlights:
 
@@ -112,7 +140,7 @@ Highlights:
 
 ### Capture And Monitoring
 
-For consent-based support, diagnostics, and lab testing, Vortex includes capture and monitoring utilities.
+For consent-based support, diagnostics, and lab testing, Vortex RAT Builder can package capture and monitoring utilities.
 
 Highlights:
 
@@ -128,7 +156,7 @@ These features handle sensitive user information and should only be used with cl
 
 ### Security Audit And Recovery Modules
 
-Vortex includes data-audit modules intended for controlled environments, account recovery testing, and authorized security review.
+Vortex RAT Builder includes optional data-audit modules intended for controlled environments, account recovery testing, and authorized security review.
 
 Highlights:
 
@@ -156,7 +184,7 @@ Highlights:
 
 ### Advanced Windows Controls
 
-Vortex also includes advanced Windows control features for lab testing and administrator-controlled environments.
+Vortex RAT Builder also includes advanced Windows control features for lab testing and administrator-controlled environments.
 
 Highlights:
 
@@ -174,8 +202,8 @@ These options can affect system stability and security. Use them only in isolate
 
 | File | Purpose |
 | --- | --- |
-| `builder.py` | Desktop builder UI for configuring and packaging Vortex. |
-| `client.py` | Main remote administration agent and Telegram command handler. |
+| `builder.py` | Desktop builder UI for configuring and packaging Vortex RAT Builder builds. |
+| `client.py` | Build template/client logic and Telegram command handler. |
 | `requirements.txt` | Python dependencies used by the builder and client. |
 | `icon.ico` | Default Windows icon used by the project. |
 
@@ -199,9 +227,132 @@ Run the builder:
 python builder.py
 ```
 
+## Command Reference
+
+Send `/help` to the configured Telegram bot after an authorized device connects to see the in-app command list.
+
+The commands below are documented for authorized administration, support, and lab use. Commands that collect credentials, capture private activity, create persistence, disable security tools, or deliberately destabilize a machine are intentionally not documented with usage instructions in this public README.
+
+### General
+
+| Command | Usage | Description |
+| --- | --- | --- |
+| `/start` | `/start` | Confirm that the authorized device is connected. |
+| `/help` | `/help` | Show the command list inside Telegram. |
+| `/exit` | `/exit` | Stop the running client process. |
+
+### Device Sessions
+
+| Command | Usage | Description |
+| --- | --- | --- |
+| `/devices` | `/devices` | List online authorized devices registered to the bot. |
+| `/switch` | `/switch <session_number>` | Switch control to another connected authorized session. |
+| `/clearregistry` | `/clearregistry` | Reset the local Vortex session registry used for device tracking. |
+
+### System Information
+
+| Command | Usage | Description |
+| --- | --- | --- |
+| `/admincheck` | `/admincheck` | Check whether the client is running with administrator privileges. |
+| `/sysinfo` | `/sysinfo` | Display detailed system, hardware, OS, and usage information. |
+| `/whoami` | `/whoami` | Show the current Windows user context. |
+| `/datetime` | `/datetime` | Show the device date and time. |
+| `/idletime` | `/idletime` | Show how long the user session has been idle. |
+| `/listprocess` | `/listprocess` | List running processes. |
+| `/prockill` | `/prockill <process_name>` | Terminate a named process on an authorized device. |
+| `/installed` | `/installed` | List installed programs. |
+| `/services` | `/services` | List Windows services and their status. |
+
+### Power And Session Control
+
+| Command | Usage | Description |
+| --- | --- | --- |
+| `/lock` | `/lock` | Lock the workstation. |
+| `/sleep` | `/sleep` | Put the machine into sleep mode. |
+| `/shutdown` | `/shutdown` | Shut down the machine. |
+| `/restart` | `/restart` | Restart the machine. |
+| `/logoff` | `/logoff` | Log off the active Windows session. |
+
+### File Management
+
+| Command | Usage | Description |
+| --- | --- | --- |
+| `/currentdir` | `/currentdir` | Show the current working directory. |
+| `/cd` | `/cd <path>` | Change the current working directory. |
+| `/dir` | `/dir` | List files and folders in the current directory. |
+| `/drives` | `/drives` | List mounted drives. |
+| `/search` | `/search <name>` | Search for files matching a name. |
+| `/download` | `/download <file_path>` | Send an authorized file from the device to Telegram. |
+| `/upload` | Attach a file with caption `/upload` | Save an attached Telegram file to the current directory. |
+| `/uploadlink` | `/uploadlink <url> <file_name>` | Download a file from a URL to the authorized device. |
+| `/copy` | `/copy <source> <destination>` | Copy a file. |
+| `/move` | `/move <source> <destination>` | Move a file. |
+| `/rename` | `/rename <old_path> <new_path>` | Rename a file or folder. |
+| `/mkdir` | `/mkdir <path>` | Create a folder. |
+| `/openfile` | `/openfile <path>` | Open a file with the default Windows handler. |
+| `/delete` | `/delete <path>` | Delete a file or folder on an authorized device. |
+| `/encrypt` | `/encrypt <file_path> <key>` | Encrypt a selected file with the provided key. |
+| `/decrypt` | `/decrypt <file_path> <key>` | Decrypt a selected file with the provided key. |
+
+### User Interaction
+
+| Command | Usage | Description |
+| --- | --- | --- |
+| `/message` | `/message <text>` | Display a message box. |
+| `/fakeerror` | `/fakeerror <text>` | Display a custom error dialog for testing. |
+| `/voice` | `/voice <text>` | Speak text using text-to-speech. |
+| `/write` | `/write <text>` | Type text into the active session. |
+| `/wallpaper` | Attach an image with caption `/wallpaper` | Set the attached image as the desktop wallpaper. |
+| `/website` | `/website <url>` | Open a URL in the default browser. |
+| `/audio` | Attach audio with caption `/audio` | Play the attached audio file. |
+| `/popup` | `/popup <count> <text>` | Show repeated popup messages for authorized testing. |
+| `/volumeup` | `/volumeup` | Increase system volume. |
+| `/volumedown` | `/volumedown` | Decrease system volume. |
+| `/mute` | `/mute` | Toggle mute. |
+| `/monitors_off` | `/monitors_off` | Turn off connected monitors. |
+
+### Capture And Diagnostics
+
+| Command | Usage | Description |
+| --- | --- | --- |
+| `/screenshot` | `/screenshot` | Capture the current screen. |
+| `/clipboard` | `/clipboard` | Show clipboard text. |
+| `/setclipboard` | `/setclipboard <text>` | Set clipboard text. |
+| `/getcams` | `/getcams` | List available camera indexes. |
+| `/selectcam` | `/selectcam <index>` | Select which camera index to use. |
+| `/webcampic` | `/webcampic` | Capture an image from the selected camera with consent. |
+| `/record` | `/record <seconds>` | Record microphone audio for a limited duration with consent. |
+
+### Network Diagnostics
+
+| Command | Usage | Description |
+| --- | --- | --- |
+| `/wifilist` | `/wifilist` | List nearby Wi-Fi network names. |
+| `/ipconfig` | `/ipconfig` | Show local network adapter configuration. |
+| `/netstat` | `/netstat` | Show active network connections. |
+| `/env` | `/env` | Show environment variables for diagnostics. |
+| `/geolocate` | `/geolocate` | Show public IP geolocation information. |
+| `/blocksite` | `/blocksite <domain>` | Add a domain block entry on an authorized system. |
+| `/unblocksite` | `/unblocksite <domain>` | Remove a domain block entry on an authorized system. |
+
+### Desktop Visibility
+
+| Command | Usage | Description |
+| --- | --- | --- |
+| `/hidetaskbar` | `/hidetaskbar` | Hide the Windows taskbar. |
+| `/showtaskbar` | `/showtaskbar` | Show the Windows taskbar. |
+| `/hidedesktop` | `/hidedesktop` | Hide desktop icons. |
+| `/showdesktop` | `/showdesktop` | Show desktop icons. |
+| `/swap_mouse` | `/swap_mouse` | Swap left and right mouse buttons. |
+| `/unswap_mouse` | `/unswap_mouse` | Restore normal mouse button behavior. |
+
+### Sensitive Commands
+
+The codebase contains additional high-risk commands related to credential/session collection, keyboard logging, startup persistence, security-control changes, and crash/critical-process testing. Because those capabilities can harm users when misused, this README does not provide operational usage instructions for them. Only use or document those modules in private, authorized lab environments, and remove them before publishing a public build.
+
 ## Responsible Use
 
-Vortex is a powerful administration framework. By using it, you agree to the following rules:
+Vortex RAT Builder is a powerful administration builder. By using it, you agree to the following rules:
 
 - Use it only on devices you own or have explicit permission to manage.
 - Do not use it for unauthorized access, surveillance, credential theft, harassment, or evasion.
@@ -219,4 +370,4 @@ For help, updates, custom requests, or purchase questions:
 - Channel: [t.me/VortexPremiumRat](https://t.me/VortexPremiumRat)
 - Website: [vortexcodes.org](https://vortexcodes.org)
 
-Thank you for supporting Vortex and the Vortex Codes community.
+Thank you for supporting Vortex RAT Builder and the Vortex Codes community.
